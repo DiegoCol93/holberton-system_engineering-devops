@@ -1,2 +1,2 @@
 #!/bin/bash
-chow :holberton hello
+chgrp holberton hello
