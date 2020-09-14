@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $PATH | grep -o :/ | wc -l
+printenv PATH | grep -o :/ | wc -l
