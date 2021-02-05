@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Script for writing numbers up to 20.
+
+i=1
+b='bad luck from'
+while [ $i -le 20 ]
+do
+    echo $i
+    case $i in
+	4)
+	    echo "$b" China
+	    ;;
+	9)
+	    echo "$b" Japan
+	    ;;
+	17)
+	    echo "$b" Italy
+	    ;;
+    esac
+    let i++
+done
