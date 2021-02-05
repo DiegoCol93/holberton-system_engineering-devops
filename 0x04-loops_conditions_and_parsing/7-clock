@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Display the 59 minutes on the 12 hours of a day.
+#
+
+hour=0
+while [ $hour -le 23 ]
+do
+
+    mins=0
+    while [ $mins -le 59 ]
+    do
+	let mins++
+	echo "$mins"
+    done
+    let hour++
+    echo Hour: "$hour"
+
+done
