@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Prints to infinity and beyond every 2 seconds and is invincible by SIGTERM
+
+no_stop="bash is awesome"
+
+while [ "$no_stop" ]
+do
+    trap 'echo I am invincible!!!' SIGTERM
+    echo To infinity and beyond
+    sleep 2
+done
