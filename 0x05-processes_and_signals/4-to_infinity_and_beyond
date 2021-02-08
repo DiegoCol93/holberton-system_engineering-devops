@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Prints to infinity and beyond every 2 seconds.
+
+no_stop="bash is awesome"
+
+while [ "$no_stop" ]
+do
+    echo To infinity and beyond
+    sleep 2
+done
