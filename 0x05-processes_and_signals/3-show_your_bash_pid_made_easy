@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Pid and process name containing bash
+pgrep -l "bash"
