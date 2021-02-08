@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Creates a file, 
+echo $$ > holbertonscript.pid
+sudo mv holbertonscript.pid /var/run/
+
+no_stop="Bash is fun."
+while [ "$no_stop" ]
+do
+    trap 'sudo rm /var/run/holbertonscript.pid && echo I hate the kill command && exit' SIGTERM SIGQUIT
+    trap 'echo Y U no love me?!' SIGINT
+    echo To infinity and beyond
+    sleep 2
+done
