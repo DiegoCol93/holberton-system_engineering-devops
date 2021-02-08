@@ -3,6 +3,6 @@
 t="True"
 while [ $t ]
 do
-    sudo echo "I am alive!" | sudo tee -a file /tmp/my_process
+    echo "I am alive!" >> /tmp/my_process
     sleep 2
 done
