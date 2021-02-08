@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
+# Manages process manage_my_process
 case "$1" in
+
     start)
 	./manage_my_process &
 	pid="$!"
@@ -13,6 +15,7 @@ case "$1" in
 	echo "manage_my_process stopped"
 	exit 0
 	;;
+
     restart)
 	sudo kill "$(cat /var/run/my_process.pid)"
 	sudo rm /var/run/my_process.pid
