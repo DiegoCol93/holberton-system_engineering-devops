@@ -25,7 +25,7 @@ int infinite_while(void)
  *      \/_____/\/_____/\/_/    \/_____/\/_____/
  *                                    Feb - 2021
  */
-void main(void)
+int main(void)
 {
 	pid_t pid = 0;
 	int i = 0;
@@ -33,7 +33,7 @@ void main(void)
 	for (i = 0; i < 5; i++)
 	{
 		pid = fork();
-		if (pid == 0)
+		if (pid <= 0)
 		{
 			exit(0);
 		}
@@ -44,4 +44,5 @@ void main(void)
 		}
 	}
 	infinite_while();
+	return(0);
 }
