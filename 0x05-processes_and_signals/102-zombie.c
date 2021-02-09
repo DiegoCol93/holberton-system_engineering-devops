@@ -13,6 +13,7 @@ int infinite_while(void)
 }
 /**
  * main       - Creates zombie child processes.
+ * Return:    - 0 always
  *     _____   __  ______  ______  ______
  *    /\  __-./\ \/\  ___\/\  ___\/\  __ \
  *    \ \ \/\ \ \ \ \  __\\ \ \__ \ \ \/\ \
@@ -44,5 +45,5 @@ int main(void)
 		}
 	}
 	infinite_while();
-	return(0);
+	return (0);
 }
