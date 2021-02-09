@@ -1,8 +1,16 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-int infinite_while(void);
+/**
+ * infinite_while - Starts an infinite loop.
+ * Return: 0 never.
+ */
+int infinite_while(void)
+{
+	while (1)
+		sleep(1);
+	return (0);
+}
 /**
  * main       - Creates zombie child processes.
  *     _____   __  ______  ______  ______
@@ -36,14 +44,4 @@ void main(void)
 		}
 	}
 	infinite_while();
-}
-/**
- * infinite_while - Starts an infinite loop.
- * Return: 0 never.
- */
-int infinite_while(void)
-{
-	while (1)
-		sleep(1);
-	return (0);
 }
