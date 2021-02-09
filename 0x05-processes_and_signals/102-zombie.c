@@ -27,7 +27,7 @@ int infinite_while(void)
  */
 void main(void)
 {
-	unsigned int pid = 0;
+	pid_t pid = 0;
 	int i = 0;
 
 	for (i = 0; i < 5; i++)
@@ -35,7 +35,7 @@ void main(void)
 		pid = fork();
 		if (pid == 0)
 		{
-			exit(1);
+			exit(0);
 		}
 		else
 		{
