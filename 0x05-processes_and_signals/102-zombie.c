@@ -28,15 +28,15 @@ int infinite_while(void)
  */
 int main(void)
 {
-	pid_t pid;
+	pid_t zombie_id;
 	int i;
 
 	for (i = 0; i < 5; i++)
 	{
-		pid = fork();
-		if (pid > 0)
+		zombie_id = fork();
+		if (zombie_id > 0)
 		{
-			printf("Zombie process created, PID: %d\n", pid);
+			printf("Zombie process created, PID: %d\n", zombie_id);
 			sleep(1);
 		}
 		else
