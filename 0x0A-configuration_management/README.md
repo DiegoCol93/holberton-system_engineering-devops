@@ -1,0 +1,1 @@
+Basics on using Puppet and configuring with it.
