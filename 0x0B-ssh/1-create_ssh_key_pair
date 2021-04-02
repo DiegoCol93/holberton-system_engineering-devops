@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Creates a ssh pair on the current dir named holberton with the passphrase Betty.
+ssh-keygen -b 4096 -f holberton -N betty
