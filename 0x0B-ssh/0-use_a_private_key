@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Connects to my assigned VM ove ssh.
-ssh ubuntu@34.75.21.202
+ssh ubuntu@34.75.21.202 -i ~/.ssh/holberton 
