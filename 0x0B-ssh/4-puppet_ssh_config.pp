@@ -1,14 +1,18 @@
-# Sets up the ssh_config file for using holberton key and no password outbound ssh connections.
+# Sets up the ssh_config file for using holberton key and
+# no password on outbound ssh connections.
+
+file { '/etc/ssh/ssh_config':
+  ensure => present
+}
+
 file_line { 'Turn off passwd auth':
-  ensure => 'present',
+  ensure => present,
   path   => 'etc/ssh/ssh_config',
   line   => '    IdentityFile ~/.ssh/holberton',
-  user   => 'root'
 }
 
 file_line { 'Declare identity file':
-  ensure => 'present',
+  ensure => present,
   path   => 'etc/ssh/ssh_config',
   line   => '    PasswordAuthentication no',
-  user   => 'root'
 }
