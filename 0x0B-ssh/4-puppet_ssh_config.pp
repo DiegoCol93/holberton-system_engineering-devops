@@ -2,7 +2,11 @@
 # no password on outbound ssh connections.
 
 file { '/etc/ssh/ssh_config':
-  ensure => present
+  ensure => present,
+  user   => 'root',
+  mode   => '0644',
+  owner  => 'root',
+  group  => 'root'
 }
 
 file_line { 'Turn off passwd auth':
