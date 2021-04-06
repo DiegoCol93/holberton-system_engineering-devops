@@ -6,10 +6,12 @@ apt-get update && apt-get install nginx -y
 echo "Holberton School" > /var/www/html/index.html
 
 # Checks if there is a line having redirect_me.
-# Declare input string.
-IN_STRING="\\\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
-# Add line into the file.
-sed -i "48i $IN_STRING" /etc/nginx/sites-available/default
+GREP_RES=$(grep "redirect_me" /etc/nginx/sites-available/default)
+if [[ -z $GREP_RES ]]; then
+    # Declare input string.
+    IN_STRING="\\\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+    # Add line into the file.
+    sed -i "48i $IN_STRING" /etc/nginx/sites-available/default
+fi
 
-service nginx stop
-service nginx start
+service nginx restart
