@@ -19,7 +19,7 @@ fi
 GREP_RES=$(grep "error_page 404" /etc/nginx/sites-available/default)
 if [[ -z $GREP_RES ]]; then
     # Declare input string.     
-    IN_STRING='\\\n\terror_page 404 /404.html;\n'
+    IN_STRING='\\n\terror_page 404 /404.html;\n'
     # Add line into the file.
     sed -i "42i $IN_STRING" /etc/nginx/sites-available/default
 fi
