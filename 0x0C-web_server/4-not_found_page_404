@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Installs nginx, sets up the configurations and default pages to be served.
+apt-get update && apt-get install nginx -y
+
+# Sets the content of the root nginx pages. - - - - - - - - - - - - - - - -
+echo "Holberton School" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+
+# Checks if there is a line having "redirect_me". - - - - - - - - - - - - -
+GREP_RES=$(grep "redirect_me" /etc/nginx/sites-available/default)
+if [[ -z $GREP_RES ]]; then
+    # Declare input string.
+    IN_STRING="\\\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+    # Add line into the file.
+    sed -i "48i $IN_STRING" /etc/nginx/sites-available/default
+fi
+
+# Checks if there is a line having "error_page 404" on it. - - - - - - - - -
+GREP_RES=$(grep "error_page 404" /etc/nginx/sites-available/default)
+if [[ -z $GREP_RES ]]; then
+    # Declare input string.     
+    IN_STRING='\\n\terror_page 404 /404.html;\n\tlocation /404.html {\n\t\tinternal;\n\t}'
+    # Add line into the file.
+    sed -i "42i $IN_STRING" /etc/nginx/sites-available/default
+fi
+
+service nginx start
