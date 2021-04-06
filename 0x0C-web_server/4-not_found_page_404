@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Installs nginx, sets up the configurations and default pages to be served.
-apt-get update && apt-get install nginx -y
+apt-get update
+apt-get install nginx -y
 
 # Sets the content of the root nginx pages. - - - - - - - - - - - - - - - -
 echo "Holberton School" > /var/www/html/index.html
