@@ -14,4 +14,5 @@ if [[ -z $GREP_RES ]]; then
     sed -i "48i $IN_STRING" /etc/nginx/sites-available/default
 fi
 
+service nginx stop
 service nginx start
