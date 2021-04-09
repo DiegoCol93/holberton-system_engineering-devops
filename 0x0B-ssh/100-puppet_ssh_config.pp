@@ -1,6 +1,7 @@
 # Sets up the ssh_config file for using holberton key and
 # no password on outbound ssh connections.
 
+
 file { 'Ensure File':
   ensure => present,
   path    => '/etc/ssh/ssh_config',
@@ -8,6 +9,9 @@ file { 'Ensure File':
   owner   => 'root',
   group   => 'root',
 }
+
+CAMBIO AQUI
+
 
 file_line { 'Turn off passwd auth':
   ensure => present,
