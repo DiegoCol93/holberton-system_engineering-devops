@@ -50,13 +50,20 @@ exec { 'Set default /404':
 }
 ->
 
-exec { 'Set X-Served-By':
-  command  => 'sed -i "48i \\\t\tadd_header X-Served-By $HOSTNAME always;" /etc/nginx/sites-available/default'
+exec { 'Set "X-Served-By"'
+  command  => 'sed -i "48i \\\t\tadd_header X-Served-By $HOSTNAME always;" /etc/nginx/sites-available/default',
   user     => 'root',
   provider => 'shell'
 }
 ->
 
+exec { 'Set default /404':
+  command  => 'sed -i "42i \\\n\terror_page 404 /404.html;" /etc/nginx/sites-available/default',
+  user     => 'root',
+  provider => 'shell'
+}
+
+->
 exec { 'Start nginx':
   command  => 'service nginx restart',
   user     => 'root',
