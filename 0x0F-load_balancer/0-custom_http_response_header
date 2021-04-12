@@ -19,7 +19,7 @@ GREP_RES=$(grep "redirect_me" /etc/nginx/sites-available/default)
 if [[ -z $GREP_RES ]]; then
     # Declare input string and redirect URL.
     URL="https://soundcloud.com/diego-lopez-113/cumbia-espacial"
-    IN_STRING="\\\n\n\tlocation /redirect_me {\n\t\treturn 301 $URL;\n\t}"
+    IN_STRING="\\\n\tlocation /redirect_me {\n\t\treturn 301 $URL;\n\t}"
     # Add line into the file.
     sed -i "48i $IN_STRING" /etc/nginx/sites-available/default
 fi
@@ -37,7 +37,7 @@ fi
 GREP_RES=$(grep "X-Served-By" /etc/nginx/sites-available/default)
 if [[ -z $GREP_RES ]]; then
     # Declare input string.     
-    IN_STRING="\\\n\t\tadd_header X-Served-By $HOSTNAME always;"
+    IN_STRING="\\\t\tadd_header X-Served-By $HOSTNAME always;"
     # Add line into the file.
     sed -i "48i $IN_STRING" /etc/nginx/sites-available/default
 fi
