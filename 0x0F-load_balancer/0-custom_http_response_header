@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Installs nginx, sets up the configurations and default pages to be served. - |
+
+apt-get update && apt-get install nginx -y
+
+# Create && Get web sources. - - - - - - - - - - - - - - - - - - - - - - - - - |
+echo "Holberton School" > /var/www/html/index.html
+# If 404.html does not exist.
+if [[ ! -e /var/www/html/404.html ]]; then
+    wget https://github.com/DiegoCol93/web_sources/raw/main/404/404.html -P /var/www/html/
+fi
+# If 404.css does not exist.
+if [[ ! -e /var/www/html/css/404.css ]]; then
+    wget https://github.com/DiegoCol93/web_sources/raw/main/404/css/404.css -P /var/www/html/css/
+fi
+
+# Checks if there is a line having redirect_me in default file. - - - - - - - -|
+GREP_RES=$(grep "redirect_me" /etc/nginx/sites-available/default)
+if [[ -z $GREP_RES ]]; then
+    # Declare input string and redirect URL.
+    URL="https://soundcloud.com/diego-lopez-113/cumbia-espacial"
+    IN_STRING="\\\n\n\tlocation /redirect_me {\n\t\treturn 301 $URL;\n\t}"
+    # Add line into the file.
+    sed -i "48i $IN_STRING" /etc/nginx/sites-available/default
+fi
+
+# Checks if there is a line having "error_page 404" in default file. - - - - - |
+GREP_RES=$(grep "error_page 404" /etc/nginx/sites-available/default)
+if [[ -z $GREP_RES ]]; then
+    # Declare input string.     
+    IN_STRING='\\n\terror_page 404 /404.html;'
+    # Add line into the file.
+    sed -i "42i $IN_STRING" /etc/nginx/sites-available/default
+fi
+
+# Checks if there is a line having "X-served-By" in default file. - - - - - - -|
+GREP_RES=$(grep "X-Served-By" /etc/nginx/sites-available/default)
+if [[ -z $GREP_RES ]]; then
+    # Declare input string.     
+    IN_STRING="\\\n\t\tadd_header X-Served-By $HOSTNAME always;"
+    # Add line into the file.
+    sed -i "48i $IN_STRING" /etc/nginx/sites-available/default
+fi
+
+service nginx restart
