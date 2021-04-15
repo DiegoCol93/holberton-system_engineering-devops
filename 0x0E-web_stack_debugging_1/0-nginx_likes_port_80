@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Resolves the problems with the server, debugging 01.
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
