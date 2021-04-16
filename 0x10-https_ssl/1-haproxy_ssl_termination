@@ -47,6 +47,5 @@ frontend diego-lopez.tech
 
 backend web_servers
         redirect scheme https if !{ ssl_fc }
-        balance roundrobin
         server server-01 34.75.21.202:80 check
         server server-02 35.185.122.161:80 check
