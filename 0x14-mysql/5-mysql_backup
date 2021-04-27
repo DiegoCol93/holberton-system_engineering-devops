@@ -2,7 +2,7 @@
 # Creates a backup of all databases on the mysql server.
 
 # Create dump from mysql.
-mysqldump -u root -p "$1" --all-databases > backup.sql
+mysqldump -uroot -p"$1" --all-databases > backup.sql
 
 # Set date format variable
 date_format=$(date +%d-%m-%Y)
