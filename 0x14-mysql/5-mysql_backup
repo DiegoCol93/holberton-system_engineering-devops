@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Creates a backup of all databases on the mysql server.
+
+# Create dump from mysql.
+mysqldump -u root -p "$1" --all-databases > backup.sql
+
+# Set date format variable
+date_format=$(date +%d-%m-%Y)
+# Compress into .tar.gz file.
+tar -zcvf "$date_format.tar.gz" ./backup.sql
