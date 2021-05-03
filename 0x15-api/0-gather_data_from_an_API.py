@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 ''' Fetches the progress of a TODO list from an employee given their id. '''
 if __name__ == '__main__':
-    from sys import argv as av
     from requests import get
+    from sys import argv as av
 
     name_path = 'https://jsonplaceholder.typicode.com/users/{}'
     name = get(name_path.format(av[1])).json()['name']
