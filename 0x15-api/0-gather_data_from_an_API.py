@@ -10,16 +10,15 @@ if __name__ == '__main__':
     todo = get('https://jsonplaceholder.typicode.com/todos').json()
     task_count = 0
     task_total = 0
-    task_str = ''
+    task_st = ''
 
     for task in todo:
         if task['userId'] == int(av[1]):
             task_total = task_total + 1
             if task['completed'] is True:
                 task_count = task_count + 1
-                task_str += "\t" + task['title'] + "\n"
+                task_st += "\t" + task['title'] + "\n"
 
     print('Employee {} is done with tasks({}/{}):\n{}'.format(name, task_count,
                                                               task_total,
-                                                              task_str),
-          end='')
+                                                              task_st), end='')
