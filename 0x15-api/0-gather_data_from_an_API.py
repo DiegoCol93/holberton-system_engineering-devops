@@ -17,7 +17,7 @@ if __name__ == '__main__':
             task_total = task_total + 1
             if task['completed'] is True:
                 task_count = task_count + 1
-                task_st += "\t" + task['title'] + "\n"
+                task_st += "\t " + task['title'] + "\n"
 
     print('Employee {} is done with tasks({}/{}):\n{}'.format(name, task_count,
                                                               task_total,
