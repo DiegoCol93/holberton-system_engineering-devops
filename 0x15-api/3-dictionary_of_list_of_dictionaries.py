@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 ''' Fetches the progress of a TODO list from an employee given their id. '''
 if __name__ == '__main__':
-    from sys import argv as av
     from json import dump
     from requests import get
 
