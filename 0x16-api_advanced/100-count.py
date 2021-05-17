@@ -59,6 +59,5 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
                                               word_count[i] *
                                               word_list.count(word_list[i])))
                     i += 1
-
-        else:
-            print('')
+        # else:
+        #     print('')
