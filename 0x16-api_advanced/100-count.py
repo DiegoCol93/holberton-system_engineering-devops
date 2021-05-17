@@ -32,8 +32,6 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
             if r.json()['data']['after'] is not None:
                 count_words(subreddit, word_list,
                             word_count, r.json()['data']['after'])
-        else:
-            print('')
     else:
         url = ('https://www.reddit.com/r/{}/hot.json?after={}'
                .format(subreddit,
