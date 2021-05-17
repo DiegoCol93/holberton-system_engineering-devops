@@ -10,8 +10,7 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
     """
     headers = {'User-Agent': 'HolbertonSchool'}
 
-    word_list = list(set([word.lower() for word in word_list]))
-    word_list.sort()
+    word_list = [word.lower() for word in word_list]
 
     if bool(word_count) is False:
         for word in word_list:
@@ -54,9 +53,11 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
             else:
                 i = 0
                 word_list.sort()
-                for i in range(len(word_list)):
+                for i in range(len(list(set(word_list)))):
                     if word_count[i] != 0:
-                        print('{}: {}'.format(word_list[i], word_count[i]))
+                        print('{}: {}'.format(word_list[i],
+                                              word_count[i] *
+                                              word_list.count(word_list[i])))
                     i += 1
 
         else:
