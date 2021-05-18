@@ -57,9 +57,6 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
                     if word_count[i] != 0:
                         dicto[word_list[i]] = (word_count[i] *
                                                word_list.count(word_list[i]))
-                        # print('{}: {}'.format(word_list[i],
-                        #                       word_count[i] *
-                        #                       word_list.count(word_list[i])))
 
                 for key, value in sorted(dicto.items(),
                                          key=lambda x: (-x[1], x[0])):
